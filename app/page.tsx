@@ -8,10 +8,26 @@ export default function Home() {
       <div>
        <Navbar />
         <div style={{padding: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px'}}>
-          <BasicCard />
-          <BasicCard />
-          <BasicCard />
-          <BasicCard />
+          <BasicCard title='Casque Product Blablabla'
+            subtitle='Small Casque, XMMS'
+            note={3}
+            raters={263}
+          />
+          <BasicCard title='Casque Product Blablabla'
+            subtitle='Small Casque, XMMS'
+            note={3}
+            raters={263}
+          />
+          <BasicCard title='Casque Product Blablabla'
+            subtitle='Small Casque, XMMS'
+            note={5}
+            raters={263}
+          />
+          <BasicCard title='Casque Product Blablabla'
+            subtitle='Small Casque, XMMS'
+            note={4}
+            raters={263}
+          />
         </div>
       </div>
     </main>

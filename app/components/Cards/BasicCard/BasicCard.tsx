@@ -1,28 +1,41 @@
 import Image from 'next/image'
 import styles from './basic-card.module.css'
 
-export const BasicCard = (): JSX.Element => {
+type BasicCardProps = {
+    title: string,
+    note: 0 | 1 | 2 | 3 | 4 | 5,
+    subtitle: string,
+    raters: number
+}
+
+
+export const BasicCard = ({title, subtitle, note, raters}: BasicCardProps): JSX.Element => {
+
+    const notes: boolean[] = []
+
+    for(let i = 1; i <= 5; i++) notes.push(i <= note)
     return (
         <>
             <div className={styles.card}>
                 <div style={{width: '300px', display: "flex", justifyContent: 'center', alignItems: 'center', height: '300px', background: '#eee', borderRadius: '10px'}}>
                     <Image width="250" height="250" src="/casque.png" alt="img" />
-                    <button style={{position: 'absolute', marginBottom: '225px', marginLeft: '225px'}}>
-                        Ok
+                    <button className={styles['heart-button']} style={{position: 'absolute', marginBottom: '225px', marginLeft: '225px'}}>
                     </button>
                 </div>
                 <div className={styles.description}>
                     <div>
-                        <strong>Wireless Machin Machin, <span>XXLSM</span></strong>
+                        <strong>{title}</strong>
                     </div>
                     <div>
                         <small style={{fontWeight: 600, color: '#888'}}>
-                            Organic Cotton, fairtrade certified
+                            {subtitle}
                         </small>
                     </div>
                     <div>
                         <small style={{color: '#229933'}}>
-                            Etoiles (121)
+                            {notes.map((n, key) => <i key={key} className={`fa-${n ? 'solid' : 'regular'} fa-star`}></i>)}
+                            &nbsp;
+                            ({raters})
                         </small>
                     </div>
                     <div style={{marginTop: '20px'}}>

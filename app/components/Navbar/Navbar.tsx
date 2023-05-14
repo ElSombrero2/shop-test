@@ -25,7 +25,7 @@ export const Navbar = (): JSX.Element => {
 
                     <div>
                         <div className={styles['input-wrapper']}>
-                            <input className={`${styles.input}`} type="text" />
+                            <input placeholder='Search' className={`${styles.input}`} type="text" />
                         </div>
                     </div>
 
